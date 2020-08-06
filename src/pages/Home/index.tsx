@@ -63,6 +63,14 @@ const Home: React.FC = () => {
       </div>
       <div className="row">
         <ButtonItem>
+          <span>{'<Button disableShadow/>'}</span>
+          <Button color="primary" disableShadow>
+            Default
+          </Button>
+        </ButtonItem>
+      </div>
+      <div className="row">
+        <ButtonItem>
           <span>{'<Button size="sm"/>'}</span>
           <Button color="primary" size="sm">
             Default

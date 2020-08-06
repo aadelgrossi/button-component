@@ -6,6 +6,7 @@ interface ButtonProps {
   color: string;
   variant?: string;
   size: string;
+  disableShadow?: boolean;
 }
 
 interface ButtonProperty {
@@ -70,7 +71,8 @@ export const Container = styled.button<ButtonProps>`
   height: ${props => buttonSizesNew[props.size].height};
   padding: ${props => buttonSizesNew[props.size].padding};
   border-radius: 6px;
-  box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
+  box-shadow: ${props =>
+    props.disableShadow ? 'none' : '0px 2px 3px rgba(51, 51, 51, 0.2)'};
   transition: background-color 150ms ease-in-out;
   color: ${props => (props.color === 'default' ? '#3f3f3f' : '#fff')};
 
