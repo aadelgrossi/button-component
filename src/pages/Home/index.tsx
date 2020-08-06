@@ -12,9 +12,53 @@ const Home: React.FC = () => {
           <span>{'<Button />'}</span>
           <Button>Default</Button>
         </ButtonItem>
+      </div>
+      <div className="row">
         <ButtonItem>
-          <span>&:hover, &:focus</span>
-          <Button>Default</Button>
+          <span>{'<Button variant="outline"/>'}</span>
+          <Button variant="outline">Default</Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="primary" variant="outline"/>'}</span>
+          <Button color="primary" variant="outline">
+            Default
+          </Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="secondary" variant="outline"/>'}</span>
+          <Button color="secondary" variant="outline">
+            Default
+          </Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="danger" variant="outline"/>'}</span>
+          <Button color="danger" variant="outline">
+            Default
+          </Button>
+        </ButtonItem>
+      </div>
+      <div className="row">
+        <ButtonItem>
+          <span>{'<Button variant="text"/>'}</span>
+          <Button variant="text">Default</Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="primary" variant="text"/>'}</span>
+          <Button color="primary" variant="text">
+            Default
+          </Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="secondary" variant="text"/>'}</span>
+          <Button color="secondary" variant="text">
+            Default
+          </Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="danger" variant="text"/>'}</span>
+          <Button color="danger" variant="text">
+            Default
+          </Button>
         </ButtonItem>
       </div>
       <div className="row">

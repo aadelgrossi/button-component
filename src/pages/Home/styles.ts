@@ -17,9 +17,9 @@ export const ButtonItem = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
-  min-width: 15rem;
+  min-width: 20rem;
   & + & {
-    margin-left: 5rem;
+    margin-left: 2rem;
   }
 
   span {
