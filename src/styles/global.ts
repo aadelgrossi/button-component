@@ -1,23 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-// Button background Colors
-export const buttonDefault = '#E0E0E0';
-export const buttonDefaultHover = '#AEAEAE';
-
-export const buttonPrimary = '#3D5AFE';
-export const buttonPrimaryHover = '#0039CB';
-
-export const buttonSecondary = '#455A64';
-export const buttonSecondaryHover = '#1C313A';
-
-export const buttonDanger = '#D32F2F';
-export const buttonDangerHover = '#9A0007';
-
-// Button text colors
-export const buttonDefaultTextColor = '#3f3f3f';
-export const buttonDisabledTextColor = '#9E9E9E';
-export const buttonTextColor = '#FFFFFF';
-
 export default createGlobalStyle`
   * {
     margin: 0;
@@ -53,6 +35,7 @@ export default createGlobalStyle`
   }
 
   span {
+    font-size: 12px;
     font-family: 'Ubuntu Mono', monospace;
   }
 

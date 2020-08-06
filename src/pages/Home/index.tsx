@@ -17,6 +17,24 @@ const Home: React.FC = () => {
           <Button>Default</Button>
         </ButtonItem>
       </div>
+      <div className="row">
+        <ButtonItem>
+          <span>{'<Button color="default"/>'}</span>
+          <Button color="default">Default</Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="primary"/>'}</span>
+          <Button color="primary">Default</Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="secondary"/>'}</span>
+          <Button color="secondary">Secondary</Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button color="danger"/>'}</span>
+          <Button color="danger">Danger</Button>
+        </ButtonItem>
+      </div>
     </Container>
   );
 };

@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 60%;
   height: 90vh;
   display: flex;
   flex-direction: column;
-  margin: 5rem 20vw 0;
+  margin: 5rem auto 0;
   align-items: flex-start;
 
   > .row {
@@ -18,9 +17,9 @@ export const ButtonItem = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
-
+  min-width: 15rem;
   & + & {
-    margin-left: 15rem;
+    margin-left: 5rem;
   }
 
   span {
