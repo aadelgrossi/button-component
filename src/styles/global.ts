@@ -41,11 +41,15 @@ export default createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
+    color: #4f4f4f;
+    font-size: 24px;
   }
 
   button {
-    cursor: pointer;
     border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
   }
 
   span {
