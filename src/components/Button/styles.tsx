@@ -5,9 +5,10 @@ export const buttonDisabledTextColor = '#9E9E9E';
 interface ButtonProps {
   color: string;
   variant?: string;
+  size: string;
 }
 
-interface ButtonColorProperty {
+interface ButtonProperty {
   [type: string]: string;
 }
 
@@ -20,11 +21,33 @@ interface HoverProperty {
   };
 }
 
-const buttonColors: ButtonColorProperty = {
+const buttonColors: ButtonProperty = {
   default: '#E0E0E0',
   primary: '#3D5AFE',
   secondary: '#455A64',
   danger: '#D32F2F',
+};
+
+interface IButtonSizesNew {
+  [size: string]: {
+    height: string;
+    padding: string;
+  };
+}
+
+const buttonSizesNew: IButtonSizesNew = {
+  sm: {
+    height: '32px',
+    padding: '6px 12px',
+  },
+  md: {
+    height: '36px',
+    padding: '8px 16px',
+  },
+  lg: {
+    height: '42px',
+    padding: '11px 22px',
+  },
 };
 
 const buttonHoverBackgrounds: HoverProperty = {
@@ -44,9 +67,9 @@ const buttonHoverBackgrounds: HoverProperty = {
 
 export const Container = styled.button<ButtonProps>`
   width: fit-content;
-  height: 36px;
+  height: ${props => buttonSizesNew[props.size].height};
+  padding: ${props => buttonSizesNew[props.size].padding};
   border-radius: 6px;
-  padding: 8px 16px;
   box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
   transition: background-color 150ms ease-in-out;
   color: ${props => (props.color === 'default' ? '#3f3f3f' : '#fff')};
@@ -66,11 +89,13 @@ export const Container = styled.button<ButtonProps>`
   }
 
   ${props =>
-    props.variant &&
+    props.variant !== 'fill' &&
     css`
       color: ${props.color === 'default'
         ? '#3f3f3f'
         : buttonColors[props.color]};
+      background: transparent;
+      box-shadow: none;
     `}
 
   ${props =>
@@ -78,8 +103,6 @@ export const Container = styled.button<ButtonProps>`
     css`
       border: 1px solid
         ${props.color === 'default' ? '#3f3f3f' : buttonColors[props.color]};
-      background: transparent;
-      box-shadow: none;
 
       &:hover {
         background: ${buttonHoverBackgrounds.variant[props.color]};
@@ -89,9 +112,6 @@ export const Container = styled.button<ButtonProps>`
   ${props =>
     props.variant === 'text' &&
     css`
-      background: transparent;
-      box-shadow: none;
-
       &:hover {
         background: ${buttonHoverBackgrounds.variant[props.color]};
       }
