@@ -24,29 +24,29 @@ import React from  'react';
 import Button from  '../../components/Button';
   
 const  App:  React.FC  = () => {
-	// a basic button
+  // a basic button
   <Button>I am very basic and boring</Button> 
-  
+
   // a button with outline style
-	<Button  variant="outline">I am outlined</Button>
-	
-	// a button with primary color and no shadow
+  <Button  variant="outline">I am outlined</Button>
+
+  // a button with primary color and no shadow
   <Button  color="primary">I am filled blue button</Button>
 
   // a red button without shadow
   <Button  color="danger" disableShadow>I am dangerous and flat</Button>
-  
-  // a disabled button
-	<Button  disabled>I am useless</Button>
-	
-	// a small button with secondary color
-	<Button  size="sm" color="secondary">I am tiny and not so important</Button>
-	
-	// a button with an icon on the left
-	<Button  start_icon="lock">I have an icon before my text</Button>
 
-	// a button with an icon on the right
-	<Button  size="lg" end_icon="restore">I am big and I have an icon after my text</Button>
+  // a disabled button
+  <Button  disabled>I am useless</Button>
+
+  // a small button with secondary color
+  <Button  size="sm" color="secondary">I am tiny and not so important</Button>
+
+  // a button with an icon on the left
+  <Button  start_icon="lock">I have an icon before my text</Button>
+
+  // a button with an icon on the right
+  <Button  size="lg" end_icon="restore">I am big and I have an icon after my text</Button>
 }
 
 export default App;
