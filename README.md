@@ -39,7 +39,7 @@ const  App:  React.FC  = () => {
 	// a button with an icon on the left
 	<Button  start_icon="lock">I have an icon before my text</Button>
 
-	// a button with an icon on the left
+	// a button with an icon on the right
 	<Button  size="lg" end_icon="restore">I am big and I have an icon after my text</Button>
 }
 
