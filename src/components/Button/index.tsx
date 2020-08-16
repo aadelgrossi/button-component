@@ -7,6 +7,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'fill' | 'outline' | 'text';
   size?: 'sm' | 'md' | 'lg';
   disableShadow?: boolean;
+  disabled?: boolean;
   startIcon?: string;
   endIcon?: string;
 };

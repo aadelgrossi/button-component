@@ -1,12 +1,15 @@
 import styled, { css } from 'styled-components';
 
-export const buttonDisabledTextColor = '#9E9E9E';
+const buttonDisabledTextColor = '#9E9E9E';
+const buttonDisabledBackground = '#E0E0E0';
+const buttonDefaultTextColor = '#3F3F3F';
 
 interface ButtonProps {
   color: string;
   variant?: string;
   size: string;
   disableShadow?: boolean;
+  disabled?: boolean;
   startIcon?: string;
   endIcon?: string;
 }
@@ -79,7 +82,8 @@ export const Container = styled.button<ButtonProps>`
   box-shadow: ${props =>
     props.disableShadow ? 'none' : '0px 2px 3px rgba(51, 51, 51, 0.2)'};
   transition: background-color 150ms ease-in-out;
-  color: ${props => (props.color === 'default' ? '#3f3f3f' : '#fff')};
+  color: ${props =>
+    props.color === 'default' ? buttonDefaultTextColor : '#fff'};
 
   ${props =>
     props.color &&
@@ -90,6 +94,7 @@ export const Container = styled.button<ButtonProps>`
   &:hover {
     ${props =>
       props.color &&
+      !props.disabled &&
       css`
         background: ${buttonHoverBackgrounds.regular[props.color]}};
       `}
@@ -99,7 +104,7 @@ export const Container = styled.button<ButtonProps>`
     props.variant !== 'fill' &&
     css`
       color: ${props.color === 'default'
-        ? '#3f3f3f'
+        ? buttonDefaultTextColor
         : buttonColors[props.color]};
       background: transparent;
       box-shadow: none;
@@ -107,9 +112,12 @@ export const Container = styled.button<ButtonProps>`
 
   ${props =>
     props.variant === 'outline' &&
+    !props.disabled &&
     css`
       border: 1px solid
-        ${props.color === 'default' ? '#3f3f3f' : buttonColors[props.color]};
+        ${props.color === 'default'
+          ? buttonDefaultTextColor
+          : buttonColors[props.color]};
 
       &:hover {
         background: ${buttonHoverBackgrounds.variant[props.color]};
@@ -132,5 +140,13 @@ export const Container = styled.button<ButtonProps>`
     margin-left: ${props => (props.endIcon ? '6px' : 0)}
 
   }
+
+  ${props =>
+    props.disabled &&
+    css`
+      color: ${buttonDisabledTextColor};
+      cursor: auto;
+      background-color: ${buttonDisabledBackground};
+    `}
 
 `;
