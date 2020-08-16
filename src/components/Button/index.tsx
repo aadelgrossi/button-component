@@ -7,6 +7,8 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'fill' | 'outline' | 'text';
   size?: 'sm' | 'md' | 'lg';
   disableShadow?: boolean;
+  startIcon?: string;
+  endIcon?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -14,11 +16,22 @@ const Button: React.FC<ButtonProps> = ({
   color = 'default',
   variant = 'fill',
   size = 'md',
+  startIcon,
+  endIcon,
   ...rest
 }) => {
   return (
-    <Container color={color} variant={variant} size={size} {...rest}>
+    <Container
+      color={color}
+      variant={variant}
+      size={size}
+      startIcon={startIcon}
+      endIcon={endIcon}
+      {...rest}
+    >
+      {startIcon && <i className="material-icons">{startIcon}</i>}
       {children}
+      {endIcon && <i className="material-icons">{endIcon}</i>}
     </Container>
   );
 };

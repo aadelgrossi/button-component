@@ -7,6 +7,8 @@ interface ButtonProps {
   variant?: string;
   size: string;
   disableShadow?: boolean;
+  startIcon?: string;
+  endIcon?: string;
 }
 
 interface ButtonProperty {
@@ -29,14 +31,14 @@ const buttonColors: ButtonProperty = {
   danger: '#D32F2F',
 };
 
-interface IButtonSizesNew {
+interface IButtonSizes {
   [size: string]: {
     height: string;
     padding: string;
   };
 }
 
-const buttonSizesNew: IButtonSizesNew = {
+const buttonSizesNew: IButtonSizes = {
   sm: {
     height: '32px',
     padding: '6px 12px',
@@ -67,6 +69,9 @@ const buttonHoverBackgrounds: HoverProperty = {
 };
 
 export const Container = styled.button<ButtonProps>`
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
   width: fit-content;
   height: ${props => buttonSizesNew[props.size].height};
   padding: ${props => buttonSizesNew[props.size].padding};
@@ -118,4 +123,14 @@ export const Container = styled.button<ButtonProps>`
         background: ${buttonHoverBackgrounds.variant[props.color]};
       }
     `}
+
+  i {
+    color: #fff;
+    font-size: 14px;
+
+    margin-right: ${props => (props.startIcon ? '6px' : 0)};
+    margin-left: ${props => (props.endIcon ? '6px' : 0)}
+
+  }
+
 `;

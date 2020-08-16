@@ -71,6 +71,20 @@ const Home: React.FC = () => {
       </div>
       <div className="row">
         <ButtonItem>
+          <span>{'<Button startIcon="local_grocery_store"/>'}</span>
+          <Button color="primary" startIcon="local_grocery_store">
+            Default
+          </Button>
+        </ButtonItem>
+        <ButtonItem>
+          <span>{'<Button endIcon="local_grocery_store"/>'}</span>
+          <Button color="primary" endIcon="local_grocery_store">
+            Default
+          </Button>
+        </ButtonItem>
+      </div>
+      <div className="row">
+        <ButtonItem>
           <span>{'<Button size="sm"/>'}</span>
           <Button color="primary" size="sm">
             Default
