@@ -55,24 +55,24 @@ export default App;
 ### Properties (optional)
 Provide these properties to Button component to style it according to the challenge's provided [template](https://www.figma.com/file/vfMDJhGGnqfaskO2aud06o). They are optional and can be omitted.
 
-**variant** ("fill" | "outline" | "text")
+**variant** ("fill" | "outline" | "text")  
 Button style. If omitted, defaults to "fill".
 
-**color** ( "default" | "primary" | "secondary" | "danger")
+**color** ( "default" | "primary" | "secondary" | "danger")  
 Button color (background if variant = fill, border-color if variant = outline, text if variant = text). 
 If omitted, defaults to "default".
 
-**size** ("sm" | "md" | "lg")
+**size** ("sm" | "md" | "lg")  
 Button size. If omitted, defaults to "md".
 
-**disableShadow** (boolean)
+**disableShadow** (boolean)  
 Remove box-shadow effect if true.
 
-**disabled** (boolean )
+**disabled** (boolean )  
 Disables button if true.
 
-**startIcon** (string)
+**startIcon** (string)  
 Prepends an icon to the left of button content. Property value should be a [valid icon name](https://material.io/resources/icons/?style=baseline) from Material Icons.
 
-**endIcon** (string)
+**endIcon** (string)  
 Appends an icon to the right of button content. Property value should be a [valid icon name](https://material.io/resources/icons/?style=baseline) from Material Icons.
