@@ -30,8 +30,8 @@ const  App:  React.FC  = () => {
   // a button with outline style
   <Button  variant="outline">I am outlined</Button>
 
-  // a button with primary color and no shadow
-  <Button  color="primary">I am filled blue button</Button>
+  // a button with primary color
+  <Button  color="primary">I am a filled blue button</Button>
 
   // a red button without shadow
   <Button  color="danger" disableShadow>I am dangerous and flat</Button>
