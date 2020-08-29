@@ -14,19 +14,6 @@ interface ButtonProps {
   endIcon?: string;
 }
 
-interface ButtonProperty {
-  [type: string]: string;
-}
-
-interface HoverProperty {
-  regular: {
-    [type: string]: any;
-  };
-  variant: {
-    [type: string]: any;
-  };
-}
-
 const buttonColors: ButtonProperty = {
   default: '#E0E0E0',
   primary: '#3D5AFE',
@@ -34,26 +21,10 @@ const buttonColors: ButtonProperty = {
   danger: '#D32F2F',
 };
 
-interface IButtonSizes {
-  [size: string]: {
-    height: string;
-    padding: string;
-  };
-}
-
-const buttonSizesNew: IButtonSizes = {
-  sm: {
-    height: '32px',
-    padding: '6px 12px',
-  },
-  md: {
-    height: '36px',
-    padding: '8px 16px',
-  },
-  lg: {
-    height: '42px',
-    padding: '11px 22px',
-  },
+const buttonSizes: ButtonSizes = {
+  sm: 12,
+  md: 16,
+  lg: 22,
 };
 
 const buttonHoverBackgrounds: HoverProperty = {
@@ -72,12 +43,14 @@ const buttonHoverBackgrounds: HoverProperty = {
 };
 
 export const Container = styled.button<ButtonProps>`
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   width: fit-content;
-  height: ${props => buttonSizesNew[props.size].height};
-  padding: ${props => buttonSizesNew[props.size].padding};
+  height: ${props => `${buttonSizes[props.size] + 20}px`};
+  padding: ${props =>
+    `${buttonSizes[props.size] / 2}px ${buttonSizes[props.size]}px`};
+  
   border-radius: 6px;
   box-shadow: ${props =>
     props.disableShadow ? 'none' : '0px 2px 3px rgba(51, 51, 51, 0.2)'};
@@ -91,7 +64,7 @@ export const Container = styled.button<ButtonProps>`
       background: ${buttonColors[props.color]};
     `}
 
-  &:hover {
+  &:hover, &:focus {
     ${props =>
       props.color &&
       !props.disabled &&
@@ -119,7 +92,8 @@ export const Container = styled.button<ButtonProps>`
           ? buttonDefaultTextColor
           : buttonColors[props.color]};
 
-      &:hover {
+      &:hover,
+      &:focus {
         background: ${buttonHoverBackgrounds.variant[props.color]};
       }
     `}
@@ -127,7 +101,8 @@ export const Container = styled.button<ButtonProps>`
   ${props =>
     props.variant === 'text' &&
     css`
-      &:hover {
+      &:hover,
+      &:focus {
         background: ${buttonHoverBackgrounds.variant[props.color]};
       }
     `}
