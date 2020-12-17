@@ -47,64 +47,63 @@ export const Container = styled.button<ButtonProps>`
   align-items: center;
   justify-content: space-between;
   width: fit-content;
-  height: ${props => `${buttonSizes[props.size] + 20}px`};
-  padding: ${props =>
-    `${buttonSizes[props.size] / 2}px ${buttonSizes[props.size]}px`};
-  
   border-radius: 6px;
-  box-shadow: ${props =>
-    props.disableShadow ? 'none' : '0px 2px 3px rgba(51, 51, 51, 0.2)'};
   transition: background-color 150ms ease-in-out;
-  color: ${props =>
-    props.color === 'default' ? buttonDefaultTextColor : '#fff'};
 
-  ${props =>
-    props.color &&
-    css`
-      background: ${buttonColors[props.color]};
-    `}
+  ${({ size, disableShadow, color }) => css`
+    height: ${buttonSizes[size] + 20}px;
+    padding: ${buttonSizes[size] / 2}px ${buttonSizes[size]}px;
+    box-shadow: ${disableShadow ? 'none' : '0px 2px 3px rgba(51, 51, 51, 0.2)'};
+    color: ${color === 'default' ? buttonDefaultTextColor : '#fff'};
+    background: ${buttonColors[color] || 'default'};
+  `}
 
   &:hover, &:focus {
-    ${props =>
-      props.color &&
-      !props.disabled &&
+    ${({ color, disabled }) =>
+      !disabled &&
       css`
-        background: ${buttonHoverBackgrounds.regular[props.color]}};
-      `}
+        background: ${buttonHoverBackgrounds.regular[color]}};
+      `}}
   }
 
-  ${props =>
-    props.variant !== 'fill' &&
+  ${({ variant, color }) =>
+    variant !== 'fill' &&
     css`
-      color: ${props.color === 'default'
+      color: ${color === 'default'
         ? buttonDefaultTextColor
-        : buttonColors[props.color]};
+        : buttonColors[color]};
       background: transparent;
       box-shadow: none;
     `}
 
-  ${props =>
-    props.variant === 'outline' &&
-    !props.disabled &&
+  ${({ variant, disabled, color }) =>
+    variant === 'outline' &&
+    !disabled &&
     css`
       border: 1px solid
-        ${props.color === 'default'
-          ? buttonDefaultTextColor
-          : buttonColors[props.color]};
+        ${color === 'default' ? buttonDefaultTextColor : buttonColors[color]};
 
       &:hover,
       &:focus {
-        background: ${buttonHoverBackgrounds.variant[props.color]};
+        background: ${buttonHoverBackgrounds.variant[color]};
       }
     `}
 
-  ${props =>
-    props.variant === 'text' &&
+  ${({ variant, color }) =>
+    variant === 'text' &&
     css`
       &:hover,
       &:focus {
-        background: ${buttonHoverBackgrounds.variant[props.color]};
+        background: ${buttonHoverBackgrounds.variant[color]};
       }
+    `}
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${buttonDisabledBackground};
+      color: ${buttonDisabledTextColor};
+      cursor: auto;
     `}
 
   i {
@@ -113,15 +112,5 @@ export const Container = styled.button<ButtonProps>`
 
     margin-right: ${props => (props.startIcon ? '6px' : 0)};
     margin-left: ${props => (props.endIcon ? '6px' : 0)}
-
   }
-
-  ${props =>
-    props.disabled &&
-    css`
-      color: ${buttonDisabledTextColor};
-      cursor: auto;
-      background-color: ${buttonDisabledBackground};
-    `}
-
 `;
