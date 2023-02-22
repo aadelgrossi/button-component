@@ -2,8 +2,6 @@
 
 Customizable button component implemented as a solution for DevChallenges' [Button component](https://devchallenges.io/challenges/ohgVTyJCbm5OZyTB2gNY)
 
-Check out the [examples](https://button-component-77489.web.app/) page.
-
 ## :wrench: Setup & Installation
 
 Clone the repository and install dependencies by running.
